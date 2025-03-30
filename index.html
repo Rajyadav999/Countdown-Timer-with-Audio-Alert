@@ -1,0 +1,65 @@
+<html>
+  <head>
+   <title>Count Down Timer</title>
+   
+  <link rel="stylesheet" href="mystyle.css">
+   <link rel="icon" href="icon.png"/>    <!-- with this we can add icon intsead of global icon in web page.. -->
+  
+   </head>
+<body>
+
+  <center> 
+
+<div class ="nav">
+  <a href ="index.html" class="home">Home</a>
+  <a href ="about.html" class ="home">About us</a>
+</div>
+<h1> Countdown Timer</h1>
+<form onsubmit="count()">
+  <input type="number" id="time" placeholder="enter time in Seconds"/>
+  <br/> <br/>
+  <input type="submit" value="Start"/>
+</form>
+   <h2 id ="msg"></h2>
+<audio id ="beep" src="beep.mp3"></audio>
+<script>
+   function count(){
+  event.preventDefault();
+let time=document.getElementById("time");
+let msg=document.getElementById("msg");
+let beep=document.getElementById("beep");
+
+if(time.value==="")
+{
+ alert("u did not enter seconds");
+ msg.innerHTML="";
+time.focus();
+return;
+}
+let seconds=parseInt(time.value);
+ if (seconds<1)
+{
+alert("be +ve");
+ msg.innerHTML="";
+time.value="";
+time.focus();
+return;
+}
+function updateTimer(){
+ if (seconds>0)
+{
+msg.innerHTML=seconds+"Second's remaining";
+seconds--;
+setTimeout(updateTimer,1000);
+}
+else{
+msg.innerHTML="Times Up";
+beep.play();
+}
+}
+updateTimer();
+}
+</script>
+</center>
+</body>
+</html>
