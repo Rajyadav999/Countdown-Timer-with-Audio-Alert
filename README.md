@@ -1,0 +1,1 @@
+A simple and interactive countdown timer web application built using HTML, CSS, and JavaScript. Users can set a timer in seconds, and upon completion, a sound alert is played. The design features a clean interface with a responsive layout. Ideal for learning basic DOM manipulation, form handling, and event management in JavaScript.
